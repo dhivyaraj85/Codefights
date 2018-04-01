@@ -1,0 +1,8 @@
+/*Please add ; after each select statement*/
+CREATE PROCEDURE nullIntern()
+BEGIN
+	select count(1) as number_of_nulls
+    from departments
+    where description is null
+    or UPPER(description) regexp BINARY '^[[:blank:]]*(NULL|NIL|\-)[[:blank:]]*$' ;
+END

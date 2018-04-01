@@ -1,0 +1,11 @@
+/*Please add ; after each select statement*/
+CREATE PROCEDURE movieDirectors()
+BEGIN
+	select distinct(a.director)
+    from (select director, sum(oscars) as sum
+         from moviesInfo
+         where year> 2000
+         group by director
+         having sum > 2) a
+    order by director;
+END

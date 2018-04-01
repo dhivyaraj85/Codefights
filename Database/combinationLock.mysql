@@ -1,0 +1,6 @@
+/*Please add ; after each select statement*/
+CREATE PROCEDURE combinationLock()
+BEGIN
+    select ceil(exp(sum(log(CHAR_LENGTH(characters))))) as combinations
+    from discs;
+END

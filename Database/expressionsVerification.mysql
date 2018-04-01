@@ -1,0 +1,13 @@
+/*Please add ; after each select statement*/
+CREATE PROCEDURE expressionsVerification()
+BEGIN
+    select t.id, t.a, t.b, t.operation, t.c
+    from expressions t
+    where t.c = (select case operation
+                        when '+' then a+b
+                        when '-' then a-b
+                        when '*' then a*b
+                        when '/' then a/b
+                end)
+    order by t.id;
+END

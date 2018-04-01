@@ -1,0 +1,14 @@
+/*Please add ; after each select statement*/
+CREATE PROCEDURE newsSubscribers()
+BEGIN
+    select distinct (u.subscriber)
+    from
+	(select distinct(f.subscriber) as subscriber
+    from full_year f
+    where (lower(f.newspaper) like '%daily%')
+    UNION
+    select distinct(h.subscriber) as subscriber
+    from half_year h
+    where (lower(h.newspaper) like '%daily%')) u
+    order by u.subscriber;
+END
